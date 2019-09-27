@@ -6,6 +6,7 @@ garoon.events.on("schedule.event.detail.show", function(event) {
         <span class="icon_link_2_mm_grn_kit icon_inline_mm_grn" style="width: 20px; height: 20px;"></span>
         Permalink
         </button>
+        <span class="status_copied" style="display:none">Copied!</span>
     </span>`;
 
     var link_input_tpl = `
@@ -38,6 +39,11 @@ garoon.events.on("schedule.event.detail.show", function(event) {
         copyText.select();
         copyText.setSelectionRange(0, 99999); //for mobile
         document.execCommand("copy");
+
+        //display feedback
+        jQuery(".status_copied").hide();
+        jQuery(this).next().show();
+
     })
 
     //highlight comment
